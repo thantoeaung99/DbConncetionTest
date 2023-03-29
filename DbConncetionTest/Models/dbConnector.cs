@@ -12,7 +12,16 @@ namespace DbConncetionTest.Models
         public string initialCatalog { get; set; }
         public string userId { get; set; }
         public string password { get; set; }
-
+        public string GetdbConnectionString()
+        {
+            string DbConnectionString;
+            DbConnectionString = "Data Source = " + dataSource +
+                                "; Port = " + port +
+                                "; Initial Catalog = " + initialCatalog +
+                                "; User id = " + userId +
+                                "; Password = " + password + ";";
+            return DbConnectionString;
+        }
     }
     //public class dbConnection
     //{

@@ -14,22 +14,13 @@ namespace DbConncetionTest.Controllers
 {
     public class DatabaseController : ApiController
     {
-        public dbConnector test = dbConnectionString();
-    
-        public string dbConnectionString(dbConnector dbInfo)
-        {
-            string DbConnectionString;
-            DbConnectionString = "Data Source = " + dbInfo.dataSource +
-                                "; Port = " + dbInfo.port +
-                                "; Initial Catalog = " + dbInfo.initialCatalog +
-                                "; User id = " + dbInfo.userId +
-                                "; Password = " + dbInfo.password + ";";
-            return DbConnectionString;
-        }
-        public void connection()
+        //public dbConnector test = dbConnectionString();
+
+
+        public void startDbconnection()
         {
             MySqlCommand cmd = null;
-            using (MySqlConnection conn = new MySqlConnection(dbConnectionString(test)))
+            using (MySqlConnection conn = new MySqlConnection())
             {
                 conn.Open();
                 cmd = new MySqlCommand();
@@ -42,30 +33,11 @@ namespace DbConncetionTest.Controllers
 
             }
         }
-        //public void dbConnect()
-        //{
+        public void endConnection()
+        {
+            
+        }
 
-        //}
 
-        //public static System.Data.DataSet ReadCustomer()
-        //{
-        //    MySqlCommand cmd = null;
-        //    using (MySqlConnection conn = new MySqlConnection(dbConnectionString(test)))
-        //    {
-        //        {
-        //            conn.Open();
-        //            cmd = new MySqlCommand();
-        //            cmd = conn.CreateCommand();
-        //            cmd.CommandText = @"SELECT * FROM employee ;";
-        //            MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
-        //            DataSet ds = new DataSet();
-        //            adap.Fill(ds);
-        //            conn.Close();
-
-        //            return ds;
-        //        }
-        //        return new DataSet();
-        //    }
-
-        //}
     }
+}
